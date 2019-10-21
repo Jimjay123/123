@@ -9,6 +9,8 @@
         <van-button @click="tosetting" type="primary">提交</van-button>
       </van-col>
     </van-row>
+
+    <router-view name="setting"></router-view>
   </div>
 </template>
 <script>
@@ -16,15 +18,17 @@ export default {
   data() {
     return {};
   },
+  created() {
+    console.log(this.$route);
+  },
   computed: {},
   methods: {
     tosetting() {
-      // this.router.push("/setting");
       this.$router.push("/home/setting");
     }
   }
 };
 </script>
 
-<style scoped lang="less">
+<style scoped lang="sass">
 </style>

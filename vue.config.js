@@ -1,4 +1,5 @@
 const config = require('./config');
+const path = require('path');
 
 module.exports = {
   lintOnSave: true,
@@ -18,5 +19,35 @@ module.exports = {
       errors: true,
       warnings: true
     }
+  },
+  configureWebpack: {
+    resolve: {
+      extensions: ['.js', '.json', '.vue'],
+      alias: {
+        '@': path.resolve('src'),
+        vue$: 'vue/dist/vue.common.js',
+        views: path.resolve(__dirname, 'src/views')
+      }
+    }
   }
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       commons: {
+  //         chunks: 'initial',
+  //         name: 'commons',
+  //         minChunks: 2,
+  //         maxInitialRequests: 5,
+  //         minSize: 0
+  //       },
+  //       vendor: {
+  //         // 抽离第三插件
+  //         test: /node_modules/,
+  //         chunks: 'initial',
+  //         name: 'vendor',
+  //         priority: 10
+  //       }
+  //     }
+  //   }
+  // }
 };

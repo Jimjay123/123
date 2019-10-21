@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-button type="danger">危险按钮</van-button>
+    <span>我是asset页面</span>
   </div>
 </template>
 <script>

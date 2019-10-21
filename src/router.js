@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 Vue.use(Router);
-
 export default new Router({
   routes: [
     {
@@ -12,18 +11,26 @@ export default new Router({
     {
       path: '/home',
       name: 'home',
-      component: () => import('./views/home.vue'),
+      component: () => import('@/views/home.vue'),
+      redirect: '/home/setting',
       children: [
         {
           path: 'setting',
-          component: () => import('./views/setting/setting.vue')
+          name: 'setting',
+          component: () => import('views/setting/setting.vue'),
+          meta: {
+            hidden: true
+          }
+        },
+        {
+          path: 'asset',
+          name: 'asset',
+          component: () => import('views/asset/asset.vue'),
+          meta: {
+            hidden: false
+          }
         }
       ]
     }
-    // {
-    //   path: '/setting',
-    //   name: 'setting',
-    //   component: () => import('./views/setting/setting.vue')
-    // }
   ]
 });
